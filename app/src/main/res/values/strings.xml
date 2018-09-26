@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WhatsforDinner</string>
+    <string name="buttonMealsText">Meals</string>
+    <string name="buttonRecipesText">Recipes</string>
+    <string name="buttonGroceriesText">Groceries</string>
+    <string name="buttonNewDishText">New Dish</string>
+    <string name="dishRecipeName">Recipe Name</string>
+    <string name="dishRecipeNameHint">Enter Recipe Name</string>
+    <string name="dishRecipeDirections">Directions</string>
+    <string name="dishRecipeDirectionsHint">Enter Recipe Directions</string>
+    <string name="dishIngredients">Ingredients:</string>
+</resources>

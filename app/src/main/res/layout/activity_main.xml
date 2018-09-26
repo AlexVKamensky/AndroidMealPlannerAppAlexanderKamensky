@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <Button
+                android:id="@+id/button_meals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="launchMeals"
+                android:text="@string/buttonMealsText"
+                android:textSize="30sp"
+                android:drawableTop="@drawable/ic_utensils"/>
+            <Button
+                android:id="@+id/button_recipies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="launchRecipes"
+                android:text="@string/buttonRecipesText"
+                android:textSize="30sp"
+                android:drawableTop="@drawable/desciption"/>/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/button_gorceries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="launchGroceries"
+                android:text="@string/buttonGroceriesText"
+                android:textSize="30sp"
+                android:drawableTop="@drawable/cart_dark"/>
+            <Button
+                android:id="@+id/button_newdish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="launchNewDish"
+                android:text="@string/buttonNewDishText"
+                android:textSize="30sp"
+                android:drawableTop="@drawable/add_dark"/>/>
+        </TableRow>
+    </TableLayout>
+
+
+
+</RelativeLayout>

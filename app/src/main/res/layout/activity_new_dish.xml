@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:fillViewport="false">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NewDishActivity">
+
+
+        <TextView
+            android:id="@+id/dishTextViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:text="@string/dishRecipeName"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="left" />
+
+        <EditText
+            android:id="@+id/dishEditName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignBaseline="@+id/dishTextViewName"
+            android:layout_alignBottom="@+id/dishTextViewName"
+            android:layout_alignParentRight="true"
+            android:paddingRight="30dp"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            android:hint="@string/dishRecipeNameHint">
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/dishTextViewIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/dishTextViewName"
+            android:text="@string/dishIngredients"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient1"
+            android:layout_below="@id/dishTextViewIngredients"
+            />
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient2"
+            android:layout_below="@id/dishIngredient1"
+            />
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient3"
+            android:layout_below="@id/dishIngredient2"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient4"
+            android:layout_below="@id/dishIngredient3"
+            />
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient5"
+            android:layout_below="@id/dishIngredient4"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient6"
+            android:layout_below="@id/dishIngredient5"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient7"
+            android:layout_below="@id/dishIngredient6"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient8"
+            android:layout_below="@id/dishIngredient7"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient9"
+            android:layout_below="@id/dishIngredient8"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/dishIngredient10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingredient10"
+            android:layout_below="@id/dishIngredient9"
+            />
+
+        <TextView
+            android:id="@+id/dishTextViewDirections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/dishIngredient10"
+            android:text="@string/dishRecipeDirections"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <EditText
+            android:id="@+id/dishEditDirections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_below="@id/dishTextViewDirections"
+            android:layout_alignParentLeft="true"
+            android:paddingRight="30dp"
+            android:inputType="textMultiLine"
+            android:lines="20"
+            android:minLines="5"
+            android:scrollHorizontally="false"
+            android:scrollbars="vertical"
+            android:selectAllOnFocus="true"
+            android:hint="@string/dishRecipeDirectionsHint">
+        </EditText>
+
+    </RelativeLayout>
+</ScrollView>
