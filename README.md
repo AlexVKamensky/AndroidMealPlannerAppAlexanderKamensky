@@ -5,17 +5,9 @@
 
 ## Team Information
 
-- **Name**: John Doe
--- **Email**: john.doe@sjsu.edu
--- **Student ID**: 12345678
-
-- **Name**: John Doe
--- **Email**: john.doe@sjsu.edu
--- **Student ID**: 12345678
-
-- **Name**: John Doe
--- **Email**: john.doe@sjsu.edu
--- **Student ID**: 12345678
+- **Name**: Alexander Kamensky
+-- **Email**: alexander.kamensky@sjsu.edu
+-- **Student ID**: 009779614
 
 ## Assignment Information
 - **Assignment**: Programming Assignment #1
