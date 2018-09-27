@@ -28,10 +28,6 @@ public class NewDishActivity extends AppCompatActivity {
 
     private ArrayAdapter<String> adapter;
 
-    private String[] COUNTRIES = new String[]
-    {
-        "Belgium", "France", "Italy", "Germany", "Spain"
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

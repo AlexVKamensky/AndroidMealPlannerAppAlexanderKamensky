@@ -8,42 +8,50 @@
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
         <TableRow>
+
             <Button
                 android:id="@+id/button_meals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_utensils"
                 android:onClick="launchMeals"
                 android:text="@string/buttonMealsText"
-                android:textSize="30sp"
-                android:drawableTop="@drawable/ic_utensils"/>
+                android:textSize="30sp" />
+
             <Button
                 android:id="@+id/button_recipies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableTop="@drawable/desciption"
                 android:onClick="launchRecipes"
                 android:text="@string/buttonRecipesText"
-                android:textSize="30sp"
-                android:drawableTop="@drawable/desciption"/>/>
+                android:textSize="30sp" />
         </TableRow>
+
         <TableRow>
+
             <Button
                 android:id="@+id/button_gorceries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableTop="@drawable/cart_dark"
                 android:onClick="launchGroceries"
                 android:text="@string/buttonGroceriesText"
-                android:textSize="30sp"
-                android:drawableTop="@drawable/cart_dark"/>
+                android:textSize="30sp" />
+
             <Button
                 android:id="@+id/button_newdish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableTop="@drawable/add_dark"
                 android:onClick="launchNewDish"
                 android:text="@string/buttonNewDishText"
-                android:textSize="30sp"
-                android:drawableTop="@drawable/add_dark"/>/>
+                android:textSize="30sp" />/>
         </TableRow>
     </TableLayout>
 

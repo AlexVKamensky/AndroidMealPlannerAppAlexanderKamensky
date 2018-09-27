@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.ViewDebug;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class ModelTest {
 
@@ -94,6 +95,24 @@ public class ModelTest {
             oldrecipe.setIngredient(newingr2, 2, 3);
         }
 
+        model.addMeal(newrecpe1);
+        model.addMeal(newrecpe2);
+        model.addMeal(newrecpe3);
+        model.addMeal(newrecpe4);
+        model.addMeal(newrecpe5);
+        model.addMeal(newrecpe1);
+
+        Hashtable<String, Integer> unassinged = model.getUnassignedMeals();
+
+        Meal meal1 = model.getUnassignedMealbyRecipe(newrecpe1.getName());
+        Meal meal2 = model.getUnassignedMealbyRecipe(newrecpe2.getName());
+
+        model.assignMeal(meal1, 1, 2);
+
+        unassinged = model.getUnassignedMeals();
+
+        model.assignMeal(meal2, 1, 2);
+        unassinged = model.getUnassignedMeals();
 
 
 
