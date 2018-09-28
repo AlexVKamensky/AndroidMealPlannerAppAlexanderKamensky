@@ -6,7 +6,7 @@ public class Recipe {
 
     String name;
     String directions;
-    String image;
+    Integer image;
     Ingredient[] ingredients;
     Integer[] amount;
 
@@ -14,17 +14,17 @@ public class Recipe {
         this.name = name;
         this.ingredients = new Ingredient[10];
         this.amount = new Integer[10];
+        this.image = R.drawable.ic_lemon;
         if(debug > 0) {
             String mmsg = "Recipe " + this.name + " was created";
             Log.d("Modeltesting", mmsg);
         }
     }
 
-    public void setIngredient(Ingredient ing, Integer pos, Integer amount){
+    public void setIngredient(Ingredient ing, Integer pos){
         this.ingredients[pos] = ing;
-        this.amount[pos] = amount;
         if(debug > 0) {
-            String mmsg = "Put in ingredient " + ing.getName() + " at position " + pos + " with " + amount + " amount";
+            String mmsg = "Put in ingredient " + ing.getName() + " at position " + pos;
             Log.d("Modeltesting", mmsg);
         }
     }
@@ -35,6 +35,10 @@ public class Recipe {
             String mmsg = "Recipe " + this.name + " directions set to " + this.directions;
             Log.d("Modeltesting", mmsg);
         }
+    }
+
+    public void setImage(Integer id){
+        this.image = id;
     }
 
     public String getName(){
@@ -52,5 +56,9 @@ public class Recipe {
     public String getDirections(){
         return  this.directions;
     }
+
+    public Integer getImage() { return  this.image;}
+
+
 
 }

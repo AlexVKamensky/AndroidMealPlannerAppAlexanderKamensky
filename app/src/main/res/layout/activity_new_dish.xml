@@ -39,13 +39,34 @@
             <requestFocus />
         </EditText>
 
+        <ImageView
+            android:id="@+id/dishImageView"
+            android:layout_width="123dp"
+            android:layout_height="115dp"
+            android:layout_below="@id/dishTextViewName"
+            android:src="@drawable/ic_lemon" />
+
+        <ImageButton
+            android:id="@+id/dishImageButton"
+            android:layout_width="124dp"
+            android:layout_height="116dp"
+            android:layout_alignBaseline="@+id/dishImageView"
+            android:layout_alignBottom="@+id/dishImageView"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/dishEditName"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="-4dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/chooseimage" />
+
         <TextView
             android:id="@+id/dishTextViewIngredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/dishTextViewName"
+            android:layout_below="@id/dishImageView"
             android:text="@string/dishIngredients"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 

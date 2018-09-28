@@ -61,30 +61,30 @@ public class ModelTest {
         model.addIngredient(newingr12);
 
         Recipe newrecpe1 = new Recipe("Spaghetti");
-        newrecpe1.setIngredient(newingr1, 0, 2);
-        newrecpe1.setIngredient(newingr2, 1, 3);
-        newrecpe1.setIngredient(newingr3, 2, 2);
-        newrecpe1.setIngredient(newingr4, 3, 1);
-        newrecpe1.setIngredient(newingr5, 4, 2);
+        newrecpe1.setIngredient(newingr1, 0);
+        newrecpe1.setIngredient(newingr2, 1);
+        newrecpe1.setIngredient(newingr3, 2);
+        newrecpe1.setIngredient(newingr4, 3);
+        newrecpe1.setIngredient(newingr5, 4);
         model.addRecipe(newrecpe1);
 
         Recipe newrecpe2 = new Recipe("Faust Bread");
-        newrecpe2.setIngredient(newingr3, 0, 3);
-        newrecpe2.setIngredient(newingr1, 1, 2);
-        newrecpe1.setIngredient(newingr1, 1, 2);
+        newrecpe2.setIngredient(newingr3, 0);
+        newrecpe2.setIngredient(newingr1, 1);
+        newrecpe1.setIngredient(newingr1, 1);
         model.addRecipe(newrecpe2);
 
         Recipe newrecpe3 = new Recipe("Cake");
-        newrecpe3.setIngredient(newingr1, 1, 2);
+        newrecpe3.setIngredient(newingr1, 1);
         newrecpe3.setDirections("Cook great Cake");
         model.addRecipe(newrecpe3);
 
         Recipe newrecpe4 = new Recipe("Beef Chop");
-        newrecpe4.setIngredient(newingr1, 1, 2);
+        newrecpe4.setIngredient(newingr1, 1);
         model.addRecipe(newrecpe4);
 
         Recipe newrecpe5 = new Recipe("Chicken Salad");
-        newrecpe5.setIngredient(newingr1, 1, 2);
+        newrecpe5.setIngredient(newingr1, 1);
         model.addRecipe(newrecpe5);
 
         printRecipesAndIngredientNames(model);
@@ -92,7 +92,7 @@ public class ModelTest {
         // update old recipe
         Recipe oldrecipe = model.getRecipe("Cake");
         if(oldrecipe != null) {
-            oldrecipe.setIngredient(newingr2, 2, 3);
+            oldrecipe.setIngredient(newingr2, 2);
         }
 
         model.addMeal(newrecpe1);
@@ -113,6 +113,9 @@ public class ModelTest {
 
         model.assignMeal(meal2, 1, 2);
         unassinged = model.getUnassignedMeals();
+
+        newrecpe3.setImage(R.drawable.cake);
+        newrecpe1.setImage(R.drawable.cake);
 
 
 

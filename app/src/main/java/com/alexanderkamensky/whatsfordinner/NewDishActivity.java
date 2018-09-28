@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class NewDishActivity extends AppCompatActivity {
 
     private EditText dishEditName;
     private EditText dishEditDirections;
+    private ImageView dishImageView;
+    private ImageButton dishImageButton;
     private AutoCompleteTextView dishIngredient1;
     private AutoCompleteTextView dishIngredient2;
     private AutoCompleteTextView dishIngredient3;
@@ -38,6 +42,8 @@ public class NewDishActivity extends AppCompatActivity {
 
         dishEditName = (EditText) findViewById(R.id.dishEditName);
         dishEditDirections = (EditText) findViewById(R.id.dishEditDirections);
+        dishImageView = (ImageView) findViewById(R.id.dishImageView);
+        dishImageButton = (ImageButton) findViewById(R.id.dishImageButton);
         dishIngredient1 = (AutoCompleteTextView) findViewById(R.id.dishIngredient1);
         dishIngredient2 = (AutoCompleteTextView) findViewById(R.id.dishIngredient2);
         dishIngredient3 = (AutoCompleteTextView) findViewById(R.id.dishIngredient3);
@@ -203,6 +209,9 @@ public class NewDishActivity extends AppCompatActivity {
             dishEditName.setText(name);
             dishEditDirections.setText(directions);
 
+
+            dishImageView.setImageResource(recipe.getImage());
+
             dishIngredient1.setText(getRecipeIngredientName(0));
             dishIngredient2.setText(getRecipeIngredientName(1));
             dishIngredient3.setText(getRecipeIngredientName(2));
@@ -228,10 +237,13 @@ public class NewDishActivity extends AppCompatActivity {
     }
     private void recipeNameUpdate(String name){
         Log.d("Dish", "recipeNameUpdate name = " + name);
-        if(recipe == null){
+        if(recipe == null & model.getRecipe(name) == null){
             recipe = new Recipe(name);
             model.addRecipe(recipe);
         }else {
+            if(recipe == null){
+                recipe = model.getRecipe(name);
+            }
             if (recipe.getName() != name) {
                 Recipe anotherRecipe = model.getRecipe(name);
                 if (anotherRecipe != null) {
@@ -255,7 +267,7 @@ public class NewDishActivity extends AppCompatActivity {
                 ingredient = new Ingredient(name);
                 model.addIngredient(ingredient);
             }
-            recipe.setIngredient(ingredient, index, 1);
+            recipe.setIngredient(ingredient, index);
         }
         fillGUI();
     }

@@ -66,14 +66,17 @@ public class RecipeListFragment extends Fragment {
 
         recipeList.setOnItemClickListener(RecipeTapListener);
 
+        Log.d("Recipe", "Calling update for Element 0");
+        updateDetail((String) recipeNameList.get(0));
+
 
         return view;
     }
 
 
     private AdapterView.OnItemClickListener RecipeTapListener = new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> arg0, View view, int position, long agr3) {
-            recipeName = recipeNameList.get(position);
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long agr3) {
+            recipeName = (String)adapterView.getItemAtPosition(position);
             Log.d("RecipeLog", "recipeName = " + recipeName);
             updateDetail(recipeName);
         }
@@ -84,6 +87,7 @@ public class RecipeListFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnRecipeSelectedListener) {
+            Log.d("Recipe", "listener intialized");
             listener = (OnRecipeSelectedListener) context;
         } else {
             throw new RuntimeException(context.toString()
