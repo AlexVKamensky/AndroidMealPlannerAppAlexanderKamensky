@@ -1,7 +1,7 @@
 package com.alexanderkamensky.whatsfordinner;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.R.layout;
 
 import java.util.ArrayList;
 
@@ -65,6 +64,7 @@ public class RecipeListFragment extends Fragment {
         recipeList.setAdapter(adapter);
 
         recipeList.setOnItemClickListener(RecipeTapListener);
+        recipeList.setOnItemLongClickListener(RecipeLongClickListener);
 
         Log.d("Recipe", "Calling update for Element 0");
         updateDetail((String) recipeNameList.get(0));
@@ -81,6 +81,17 @@ public class RecipeListFragment extends Fragment {
             updateDetail(recipeName);
         }
     };
+
+    private AdapterView.OnItemLongClickListener RecipeLongClickListener =  new AdapterView.OnItemLongClickListener() {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long agr3) {
+            recipeName = (String)adapterView.getItemAtPosition(position);
+            Log.d("RecipeLog", "Long Click for = " + recipeName);
+            listener.onRecipeLongSelected(recipeName);
+            return true;
+        }
+    };
+
+
 
 
     @Override
@@ -105,6 +116,7 @@ public class RecipeListFragment extends Fragment {
     public interface OnRecipeSelectedListener {
         
         void onRecipeSelected(String recipe);
+        void onRecipeLongSelected(String recipe);
     }
 
     public void updateDetail(String name) {

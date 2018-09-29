@@ -17,8 +17,8 @@ public class RecipesActivity extends AppCompatActivity implements
     RecipeListFragment.OnRecipeSelectedListener{
     ArrayList<String> recipeNameList;
     ArrayAdapter<String> adapter;
-    String currentRecipe;
 
+    String currentRecipe;
     ListView recipeList;
 
     private WhatsforDinnerModel model;
@@ -32,6 +32,10 @@ public class RecipesActivity extends AppCompatActivity implements
     }
     @Override
     public void onRecipeSelected(String recipeName) {
+
+        if(currentRecipe == recipeName){
+            model.addMeal(model.getRecipe(recipeName));
+        }
         currentRecipe = recipeName;
 
         Log.d("Recipe ", "Trying to set " + recipeName );
@@ -44,6 +48,12 @@ public class RecipesActivity extends AppCompatActivity implements
             recipeDetailFragment.setRecipe(recipeName);
         }
 
+    }
+
+    public void onRecipeLongSelected(String recipeName){
+        Intent recipePass = new Intent(this, NewDishActivity.class);
+        recipePass.putExtra("Name", recipeName);
+        startActivity(recipePass);
     }
 
 }

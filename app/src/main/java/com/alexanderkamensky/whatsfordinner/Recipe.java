@@ -1,6 +1,10 @@
 package com.alexanderkamensky.whatsfordinner;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+
 public class Recipe {
     final private static int debug = 4;
 
@@ -41,12 +45,42 @@ public class Recipe {
         this.image = id;
     }
 
+    public String getIngredientsString(){
+        String ret = "Ingredients: \n";
+        ArrayList<String> ingredeints = new ArrayList<String>();
+        Hashtable<String, Integer> amounts = new Hashtable<String, Integer>();
+        for(Ingredient ingr: this.ingredients){
+            if(ingr != null){
+                if(ingredeints.contains(ingr.getName())){
+                    amounts.put(ingr.getName(), amounts.get(ingr.getName()) +1);
+                }
+                else{
+                    ingredeints.add(ingr.getName());
+                    amounts.put(ingr.getName(), 1);
+                }
+            }
+        }
+        Collections.sort(ingredeints);
+        for(String ingredient: ingredeints){
+            ret = ret + ingredient + " (" + amounts.get(ingredient) + ")\n";
+        }
+        return ret;
+    }
+
     public String getName(){
         return this.name;
     }
 
     public Ingredient getIngredient(int num){
         return this.ingredients[num];
+    }
+
+    public ArrayList<Ingredient> getIngredients() {
+        ArrayList<Ingredient> ret = new ArrayList<Ingredient>();
+        for(Ingredient ingredient : this.ingredients){
+            ret.add(ingredient);
+        }
+        return ret;
     }
 
     public Integer getIngredientAmount(int num){

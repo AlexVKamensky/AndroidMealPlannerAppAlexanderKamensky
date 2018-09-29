@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -34,13 +35,21 @@ public class RecipeDetailFragment extends Fragment {
         setRecipe(null);
     }
 
-    public void setRecipe (String recipe) {
-        if(recipe == null){
-            recipe = model.getAllRecipesNames().get(0);
+    public void setRecipe (String recipeName) {
+        if(recipeName == null){
+            recipeName = model.getAllRecipesNames().get(0);
         }
-        Log.d("Recipe", "Reached setting");
-        TextView view = (TextView) getView().findViewById(R.id.textView1);
-        view.setText(recipe);
+        Recipe recipe = model.getRecipe(recipeName);
+
+        TextView nameView = (TextView) getView().findViewById(R.id.recipeDetailName);
+        ImageView imageView = (ImageView) getView().findViewById(R.id.recipeDetailImage);
+        TextView ingredientView = (TextView) getView().findViewById(R.id.recipeDetailIngredients);
+        TextView directionsView = (TextView) getView().findViewById(R.id.recipeDetailDirections);
+
+        nameView.setText(recipeName);
+        imageView.setImageResource(recipe.getImage());
+        ingredientView.setText(recipe.getIngredientsString());
+        directionsView.setText(recipe.getDirections());
     }
 
 

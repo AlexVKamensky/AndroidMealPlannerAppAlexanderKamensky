@@ -1,5 +1,6 @@
 package com.alexanderkamensky.whatsfordinner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -198,6 +199,14 @@ public class NewDishActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        if(intent.getStringExtra("Name") != null){
+            String name = intent.getStringExtra("Name");
+            recipe = model.getRecipe(name);
+            dishEditName.setFocusableInTouchMode(false);
+            dishIngredient1.setFocusableInTouchMode(true);
+            fillGUI();
+        }
     }
 
     private void fillGUI(){

@@ -3,7 +3,7 @@ package com.alexanderkamensky.whatsfordinner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.List;
+
 import android.util.Log;
 import java.util.Hashtable;
 
@@ -13,6 +13,7 @@ public class WhatsforDinnerModel {
     Hashtable<String, Ingredient> ingredients;
     Hashtable<String, Integer> unassignedMeals;
     ArrayList<Meal> meals;
+    Hashtable<String, Integer> groceries;
 
     private static WhatsforDinnerModel currentModel;
 
@@ -109,6 +110,9 @@ public class WhatsforDinnerModel {
         if(debug > 0){
             Log.d("Modeltesting", "Meal " + meal.getRecipeName() + " added");
         }
+        if(groceries != null){
+            this.updateGroceriesMeal(meal);
+        }
     }
 
     public Hashtable<String, Integer> getUnassignedMeals() {
@@ -163,6 +167,50 @@ public class WhatsforDinnerModel {
             meal.setDay(0);
             meal.setTime(0);
         }
+    }
 
+    public void generateGroceries(){
+        this.groceries = new Hashtable<String, Integer>();
+
+        for(Meal meal: this.meals){
+            this.updateGroceriesMeal(meal);
+        }
+    }
+
+    public void updateGroceriesMeal(Meal meal){
+        Recipe recipe = meal.getRecipe();
+
+        ArrayList<Ingredient> ingredients = recipe.getIngredients();
+        for(Ingredient ingredient: ingredients){
+            if(ingredient != null) {
+                String key = ingredient.getName();
+                if (groceries.containsKey(key)) {
+                    groceries.put(key, groceries.get(key) + 1 );
+                }
+                else{
+                    groceries.put(key, 1);
+                }
+                if(debug > 0) {
+                    Log.d("Groceries", "Added  " + key + " for " + groceries.get(key));
+                }
+            }
+        }
+    }
+
+    public ArrayList<String> getGroceries(){
+        Enumeration<String> keys = groceries.keys();
+        ArrayList<String> ret = new ArrayList<String>();
+        while (keys.hasMoreElements()) {
+            String key = keys.nextElement();
+            Integer amount = groceries.get(key);
+            if(amount > 1) {
+                ret.add(key + " (" +amount + ")");
+            }
+            else {
+                ret.add(key);
+            }
+        }
+        Collections.sort(ret);
+        return ret;
     }
 }
