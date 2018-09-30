@@ -11,7 +11,6 @@ public class WhatsforDinnerModel {
     final private static int debug = 4;
     Hashtable<String, Recipe> reciepes;
     Hashtable<String, Ingredient> ingredients;
-    Hashtable<String, Integer> unassignedMeals;
     ArrayList<Meal> meals;
     Hashtable<String, Integer> groceries;
 
@@ -26,7 +25,6 @@ public class WhatsforDinnerModel {
     public WhatsforDinnerModel(){
         this.reciepes = new Hashtable<String, Recipe>();
         this.ingredients = new Hashtable<String, Ingredient>();
-        this.unassignedMeals = new Hashtable<String, Integer>();
         this.meals= new ArrayList<Meal>();
         if(debug > 0) {
             Log.d("Modeltesting", "Model intialized");
@@ -116,29 +114,39 @@ public class WhatsforDinnerModel {
     }
 
     public Hashtable<String, Integer> getUnassignedMeals() {
-        this.unassignedMeals = new Hashtable<String, Integer>();
+        Hashtable<String, Integer> unassignedMeals = new Hashtable<String, Integer>();
         for(Meal meal: this.meals){
             if(meal.isUnAssinged()){
                 String recipeName = meal.getRecipeName();
-                if(this.unassignedMeals.containsKey(recipeName)){
-                    this.unassignedMeals.put(recipeName, this.unassignedMeals.get(recipeName) +1);
+                if(unassignedMeals.containsKey(recipeName)){
+                    unassignedMeals.put(recipeName, unassignedMeals.get(recipeName) +1);
                 }
                 else {
-                    this.unassignedMeals.put(recipeName, 1);
+                    unassignedMeals.put(recipeName, 1);
                 }
                 if(debug > 0){
-                    Log.d("Modeltesting", "Meal " + meal.getRecipeName() + " is unassigned " + " with  " + this.unassignedMeals.get(recipeName) + " left");
+                    Log.d("Modeltesting", "Meal " + meal.getRecipeName() + " is unassigned " + " with  " + unassignedMeals.get(recipeName) + " left");
                 }
             }
         }
-        return  this.unassignedMeals;
+        return  unassignedMeals;
+    }
+
+    public ArrayList<String> getUnassignedMealsList() {
+        Hashtable<String, Integer> unassignedMeals = getUnassignedMeals();
+        Enumeration<String> keys = unassignedMeals.keys();
+        ArrayList<String> ret = new ArrayList<String>();
+        while (keys.hasMoreElements()) {
+            String key = keys.nextElement();
+            ret.add(key);
+        }
+        Collections.sort(ret);
+        return ret;
     }
 
     public void assignMeal(Meal meal, Integer day, Integer time){
         this.unAssignMeal(day, time);
-        meal.setDay(day);
-        meal.setTime(time);
-        String recipeName = meal.getRecipeName();
+        meal.setDayTime(day, time);
     }
 
     public Meal getUnassignedMealbyRecipe(String recipeName){
@@ -164,8 +172,7 @@ public class WhatsforDinnerModel {
     public void unAssignMeal(Integer day, Integer time){
         Meal meal = this.getAssingedMeal(day, time);
         if(meal != null) {
-            meal.setDay(0);
-            meal.setTime(0);
+            meal.setUnassinged();
         }
     }
 

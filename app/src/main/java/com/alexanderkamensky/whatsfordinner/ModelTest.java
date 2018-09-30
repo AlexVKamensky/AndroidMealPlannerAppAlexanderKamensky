@@ -8,7 +8,12 @@ import java.util.Hashtable;
 
 public class ModelTest {
 
+    static private boolean initRun = false;
     public static void testModel(){
+        if(initRun){
+            return;
+        }
+        initRun = true;
         WhatsforDinnerModel model = WhatsforDinnerModel.getModel();
 
         // Ingridients
@@ -107,7 +112,7 @@ public class ModelTest {
         Meal meal1 = model.getUnassignedMealbyRecipe(newrecpe1.getName());
         Meal meal2 = model.getUnassignedMealbyRecipe(newrecpe2.getName());
 
-        model.assignMeal(meal1, 1, 2);
+        model.assignMeal(meal1, 1, 1);
 
         unassinged = model.getUnassignedMeals();
 
@@ -116,12 +121,6 @@ public class ModelTest {
 
         newrecpe3.setImage(R.drawable.cake);
         newrecpe1.setImage(R.drawable.cake);
-
-
-
-
-
-
     }
 
 
@@ -130,7 +129,6 @@ public class ModelTest {
         for(String name : list){
             Log.d("Modeltesting", prefix + name);
         }
-
     }
 
     public static void printRecipesAndIngredientNames(WhatsforDinnerModel model){
@@ -141,6 +139,5 @@ public class ModelTest {
         ArrayList<String> recNames = model.getAllRecipesNames();
         Log.d("Modeltesting", Integer.toString(recNames.size()));
         printArrayString("Reciepe name is ", recNames);
-
     }
 }

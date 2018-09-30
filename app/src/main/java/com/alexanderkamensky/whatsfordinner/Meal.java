@@ -27,14 +27,15 @@ public class Meal {
         return this.recipe.getName();
     }
 
-    public void setDay(int day){
+    public void setDayTime(int day, int time){
         this.day = day;
-    }
-
-    public void setTime(int time){
         this.time = time;
     }
 
+    public void setUnassinged(){
+        this.day = 0;
+        this.time = 0;
+    }
     public boolean isUnAssinged(){
         boolean ret = true;
         if(this.day != 0 & this.time != 0){

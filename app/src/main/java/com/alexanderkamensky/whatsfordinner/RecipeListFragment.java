@@ -14,10 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
 public class RecipeListFragment extends Fragment {
-
-    private OnRecipeSelectedListener mListener;
 
     ArrayList<String> recipeNameList;
     ArrayAdapter<String> adapter;
@@ -28,11 +25,9 @@ public class RecipeListFragment extends Fragment {
     private OnRecipeSelectedListener listener;
     private String recipeName;
 
-
     public RecipeListFragment() {
         // Required empty public constructor
     }
-
 
     public static RecipeListFragment newInstance(String param1, String param2) {
         RecipeListFragment fragment = new RecipeListFragment();
@@ -91,9 +86,6 @@ public class RecipeListFragment extends Fragment {
         }
     };
 
-
-
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -109,9 +101,8 @@ public class RecipeListFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        listener = null;
     }
-
 
     public interface OnRecipeSelectedListener {
         

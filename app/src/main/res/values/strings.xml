@@ -12,9 +12,26 @@
     <string name="author">Author: Alexander Kamensky</string>
     <string name="version">Version: 0.1</string>
     <string name="link">https://github.com/SJSU-Fall2018-CS175/assignment-1-what-s-for-dinner-team-k</string>
-    <string name="copyright">All images property of their resptive owners.</string>
+    <string name="copyright">All images property of their respective owners.</string>
 
 
+    <string name="mealsDay">Day</string>
+    <string name="mealsBreakfast">Breakfast</string>
+    <string name="mealsLunch">Lunch</string>
+    <string name="mealsDinner">Dinner</string>
+    <string name="mealsPrevious">Previous</string>
+    <string name="mealsNext">Next</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>
