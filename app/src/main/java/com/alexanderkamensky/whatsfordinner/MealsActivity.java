@@ -64,7 +64,6 @@ public class MealsActivity extends AppCompatActivity {
         lunchSpinner.setAdapter(lunchAdapter);
         dinnerSpinner.setAdapter(dinnerAdapter);
 
-
         breakfastSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.BREAKFAST));
         lunchSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.LUNCH));
         dinnerSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.DINNER));
@@ -101,7 +100,6 @@ public class MealsActivity extends AppCompatActivity {
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
-
         }
     };
 
@@ -119,12 +117,10 @@ public class MealsActivity extends AppCompatActivity {
         Meal lunch = model.getAssingedMeal(day, Meal.Time.LUNCH);
         Meal dinner = model.getAssingedMeal(day, Meal.Time.DINNER);
 
-
         if (breakfast != null) {
             breakfastOptions.add(breakfast.getRecipeName());
         }
         breakfastOptions.add("Eating Out");
-
 
         if (lunch != null) {
             lunchOptions.add(lunch.getRecipeName());

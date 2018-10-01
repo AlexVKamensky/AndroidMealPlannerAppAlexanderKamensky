@@ -17,7 +17,6 @@ public class GroceriesActivity extends AppCompatActivity {
 
     ListView groceriesList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,5 @@ public class GroceriesActivity extends AppCompatActivity {
         for(String groc: groceries){
             Log.d("Groceries", groc);
         }
-
-
     }
 }

@@ -145,7 +145,6 @@ public class NewDishActivity extends AppCompatActivity {
             dishEditName.setText(name);
             dishEditDirections.setText(directions);
 
-
             dishImageView.setImageResource(recipe.getImage());
 
             dishIngredient1.setText(getRecipeIngredientName(0));
@@ -215,5 +214,4 @@ public class NewDishActivity extends AppCompatActivity {
         }
         fillGUI();
     }
-
 }

@@ -92,7 +92,4 @@ public class Recipe {
     }
 
     public Integer getImage() { return  this.image;}
-
-
-
 }

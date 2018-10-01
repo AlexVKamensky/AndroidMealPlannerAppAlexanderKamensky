@@ -28,8 +28,8 @@ public class RecipesActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         model = WhatsforDinnerModel.getModel();
-
     }
+
     @Override
     public void onRecipeSelected(String recipeName) {
 
@@ -47,7 +47,6 @@ public class RecipesActivity extends AppCompatActivity implements
             Log.d("Recipe ", "Conditions met for  " + recipeName );
             recipeDetailFragment.setRecipe(recipeName);
         }
-
     }
 
     public void onRecipeLongSelected(String recipeName){
@@ -55,5 +54,5 @@ public class RecipesActivity extends AppCompatActivity implements
         recipePass.putExtra("Name", recipeName);
         startActivity(recipePass);
     }
-
 }
+

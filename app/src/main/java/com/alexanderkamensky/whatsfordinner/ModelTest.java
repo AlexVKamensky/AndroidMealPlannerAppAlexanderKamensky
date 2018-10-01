@@ -123,7 +123,6 @@ public class ModelTest {
         newrecpe1.setImage(R.drawable.cake);
     }
 
-
     public static void printArrayString(String prefix, ArrayList<String> list){
 
         for(String name : list){

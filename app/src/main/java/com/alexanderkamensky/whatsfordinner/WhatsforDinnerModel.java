@@ -22,6 +22,7 @@ public class WhatsforDinnerModel {
         }
         return  currentModel;
     }
+
     public WhatsforDinnerModel(){
         this.reciepes = new Hashtable<String, Recipe>();
         this.ingredients = new Hashtable<String, Ingredient>();
@@ -30,7 +31,6 @@ public class WhatsforDinnerModel {
             Log.d("Modeltesting", "Model intialized");
         }
     }
-
 
     public void addRecipe(Recipe recipe){
         this.reciepes.put(recipe.getName(), recipe);

@@ -18,7 +18,6 @@ public class RecipeDetailFragment extends Fragment {
 
     WhatsforDinnerModel model;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,7 +50,4 @@ public class RecipeDetailFragment extends Fragment {
         ingredientView.setText(recipe.getIngredientsString());
         directionsView.setText(recipe.getDirections());
     }
-
-
-
 }

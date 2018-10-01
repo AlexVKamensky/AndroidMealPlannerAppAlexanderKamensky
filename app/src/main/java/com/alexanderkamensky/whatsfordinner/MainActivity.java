@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 LayoutParams.WRAP_CONTENT
         );
 
-
         ImageButton closeButton = (ImageButton) popupView.findViewById(R.id.mainPopupClose);
 
         // Set a click listener for the popup window close button
@@ -71,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         popupWindow.showAtLocation(findViewById(R.id.mainView), Gravity.CENTER,0,0);
-
     }
 }
