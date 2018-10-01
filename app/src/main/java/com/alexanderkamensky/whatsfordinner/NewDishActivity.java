@@ -89,105 +89,16 @@ public class NewDishActivity extends AppCompatActivity {
             }
         });
 
-        dishIngredient1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient1.getText().toString();
-                    recipeIngredientUpdate(name, 0);
-                }
-            }
-        });
-
-        dishIngredient2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient2.getText().toString();
-                    recipeIngredientUpdate(name, 1);
-                }
-            }
-        });
-
-        dishIngredient3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient3.getText().toString();
-                    recipeIngredientUpdate(name, 2);
-                }
-            }
-        });
-
-        dishIngredient4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient4.getText().toString();
-                    recipeIngredientUpdate(name, 3);
-                }
-            }
-        });
-
-        dishIngredient5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient5.getText().toString();
-                    recipeIngredientUpdate(name, 4);
-                }
-            }
-        });
-
-        dishIngredient6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient6.getText().toString();
-                    recipeIngredientUpdate(name, 5);
-                }
-            }
-        });
-
-        dishIngredient7.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient7.getText().toString();
-                    recipeIngredientUpdate(name, 6);
-                }
-            }
-        });
-
-        dishIngredient8.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient8.getText().toString();
-                    recipeIngredientUpdate(name, 7);
-                }
-            }
-        });
-
-        dishIngredient9.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient9.getText().toString();
-                    recipeIngredientUpdate(name, 8);
-                }
-            }
-        });
-
-        dishIngredient10.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    String name = dishIngredient10.getText().toString();
-                    recipeIngredientUpdate(name, 9);
-                }
-            }
-        });
+        dishIngredient1.setOnFocusChangeListener(new IngredientListener(0));
+        dishIngredient2.setOnFocusChangeListener(new IngredientListener(1));
+        dishIngredient3.setOnFocusChangeListener(new IngredientListener(2));
+        dishIngredient4.setOnFocusChangeListener(new IngredientListener(3));
+        dishIngredient5.setOnFocusChangeListener(new IngredientListener(4));
+        dishIngredient6.setOnFocusChangeListener(new IngredientListener(5));
+        dishIngredient7.setOnFocusChangeListener(new IngredientListener(6));
+        dishIngredient8.setOnFocusChangeListener(new IngredientListener(7));
+        dishIngredient9.setOnFocusChangeListener(new IngredientListener(8));
+        dishIngredient10.setOnFocusChangeListener(new IngredientListener(9));
 
         dishEditDirections.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -206,6 +117,22 @@ public class NewDishActivity extends AppCompatActivity {
             dishEditName.setFocusableInTouchMode(false);
             dishIngredient1.setFocusableInTouchMode(true);
             fillGUI();
+        }
+    }
+
+    private class IngredientListener implements View.OnFocusChangeListener{
+        private int index;
+
+        public IngredientListener(int index){
+            this.index = index;
+        }
+
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (!hasFocus) {
+                String name = ((AutoCompleteTextView)v).getText().toString();
+                recipeIngredientUpdate(name, this.index);
+            }
         }
     }
 
