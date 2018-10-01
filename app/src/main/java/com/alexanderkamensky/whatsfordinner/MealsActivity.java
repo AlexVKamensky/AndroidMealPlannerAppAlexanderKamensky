@@ -64,81 +64,33 @@ public class MealsActivity extends AppCompatActivity {
         lunchSpinner.setAdapter(lunchAdapter);
         dinnerSpinner.setAdapter(dinnerAdapter);
 
-        breakfastSpinner.setOnItemSelectedListener(breakfastListener);
-        lunchSpinner.setOnItemSelectedListener(lunchListener);
-        dinnerSpinner.setOnItemSelectedListener(dinnerListener);
+
+        breakfastSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.BREAKFAST));
+        lunchSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.LUNCH));
+        dinnerSpinner.setOnItemSelectedListener(new MealListener(Meal.Time.DINNER));
 
         day = 1;
         fillGui();
     }
 
-    private AdapterView.OnItemSelectedListener breakfastListener =  new AdapterView.OnItemSelectedListener() {
+    private class MealListener implements AdapterView.OnItemSelectedListener {
+        private Meal.Time time;
+
+        public MealListener(Meal.Time time){
+            this.time = time;
+        }
 
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
             String choice = adapterView.getItemAtPosition(pos).toString();
             Log.d("Meals", "Choice is " + choice );
             if(choice == "Eating Out"){
-                model.unAssignMeal(day, Meal.Time.BREAKFAST);
+                model.unAssignMeal(day, time);
             }else {
                 Meal meal = model.getUnassignedMealbyRecipe(choice);
                 if(meal != null) {
                     Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, Meal.Time.BREAKFAST);
-                }
-                else{
-                    Log.d("Meals", "Meal is null");
-                }
-            }
-            fillGui();
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    };
-
-    private AdapterView.OnItemSelectedListener lunchListener =  new AdapterView.OnItemSelectedListener() {
-
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
-            String choice = adapterView.getItemAtPosition(pos).toString();
-            Log.d("Meals", "Choice is " + choice );
-            if(choice == "Eating Out"){
-                model.unAssignMeal(day, Meal.Time.LUNCH);
-            }else {
-                Meal meal = model.getUnassignedMealbyRecipe(choice);
-                if(meal != null) {
-                    Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, Meal.Time.LUNCH);
-                }
-                else{
-                    Log.d("Meals", "Meal is null");
-                }
-            }
-            fillGui();
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    };
-
-    private AdapterView.OnItemSelectedListener dinnerListener =  new AdapterView.OnItemSelectedListener() {
-
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
-            String choice = adapterView.getItemAtPosition(pos).toString();
-            Log.d("Meals", "Choice is " + choice );
-            if(choice == "Eating Out"){
-                model.unAssignMeal(day, Meal.Time.DINNER);
-            }else {
-                Meal meal = model.getUnassignedMealbyRecipe(choice);
-                if(meal != null) {
-                    Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, Meal.Time.DINNER);
+                    model.assignMeal(meal, day, time);
                 }
                 else{
                     Log.d("Meals", "Meal is null");
