@@ -79,12 +79,12 @@ public class MealsActivity extends AppCompatActivity {
             String choice = adapterView.getItemAtPosition(pos).toString();
             Log.d("Meals", "Choice is " + choice );
             if(choice == "Eating Out"){
-                model.unAssignMeal(day, 1);
+                model.unAssignMeal(day, Meal.Time.BREAKFAST);
             }else {
                 Meal meal = model.getUnassignedMealbyRecipe(choice);
                 if(meal != null) {
                     Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, 1);
+                    model.assignMeal(meal, day, Meal.Time.BREAKFAST);
                 }
                 else{
                     Log.d("Meals", "Meal is null");
@@ -106,12 +106,12 @@ public class MealsActivity extends AppCompatActivity {
             String choice = adapterView.getItemAtPosition(pos).toString();
             Log.d("Meals", "Choice is " + choice );
             if(choice == "Eating Out"){
-                model.unAssignMeal(day, 2);
+                model.unAssignMeal(day, Meal.Time.LUNCH);
             }else {
                 Meal meal = model.getUnassignedMealbyRecipe(choice);
                 if(meal != null) {
                     Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, 2);
+                    model.assignMeal(meal, day, Meal.Time.LUNCH);
                 }
                 else{
                     Log.d("Meals", "Meal is null");
@@ -133,12 +133,12 @@ public class MealsActivity extends AppCompatActivity {
             String choice = adapterView.getItemAtPosition(pos).toString();
             Log.d("Meals", "Choice is " + choice );
             if(choice == "Eating Out"){
-                model.unAssignMeal(day, 3);
+                model.unAssignMeal(day, Meal.Time.DINNER);
             }else {
                 Meal meal = model.getUnassignedMealbyRecipe(choice);
                 if(meal != null) {
                     Log.d("Meals", "Meal is " + meal.getRecipeName());
-                    model.assignMeal(meal, day, 3);
+                    model.assignMeal(meal, day, Meal.Time.DINNER);
                 }
                 else{
                     Log.d("Meals", "Meal is null");
@@ -163,9 +163,9 @@ public class MealsActivity extends AppCompatActivity {
         ArrayList<String> lunchOptions = new ArrayList<String>();
         ArrayList<String> dinnerOptions = new ArrayList<String>();
 
-        Meal breakfast = model.getAssingedMeal(day, 1);
-        Meal lunch = model.getAssingedMeal(day, 2);
-        Meal dinner = model.getAssingedMeal(day, 3);
+        Meal breakfast = model.getAssingedMeal(day, Meal.Time.BREAKFAST);
+        Meal lunch = model.getAssingedMeal(day, Meal.Time.LUNCH);
+        Meal dinner = model.getAssingedMeal(day, Meal.Time.DINNER);
 
 
         if (breakfast != null) {

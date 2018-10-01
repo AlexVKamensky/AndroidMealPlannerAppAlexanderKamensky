@@ -112,11 +112,11 @@ public class ModelTest {
         Meal meal1 = model.getUnassignedMealbyRecipe(newrecpe1.getName());
         Meal meal2 = model.getUnassignedMealbyRecipe(newrecpe2.getName());
 
-        model.assignMeal(meal1, 1, 1);
+        model.assignMeal(meal1, 1, Meal.Time.BREAKFAST);
 
         unassinged = model.getUnassignedMeals();
 
-        model.assignMeal(meal2, 1, 2);
+        model.assignMeal(meal2, 1, Meal.Time.LUNCH);
         unassinged = model.getUnassignedMeals();
 
         newrecpe3.setImage(R.drawable.cake);

@@ -1,13 +1,16 @@
 package com.alexanderkamensky.whatsfordinner;
 
 public class Meal {
+    enum Time{
+        UNASSIGNED, BREAKFAST, LUNCH, DINNER;
+    }
     private int day;
-    private int time;
+    private Time time;
     private  Recipe recipe;
 
     public Meal(Recipe recipe){
         this.day = 0;
-        this.time = 0;
+        this.time = Time.UNASSIGNED;
         this.recipe = recipe;
     }
 
@@ -15,7 +18,7 @@ public class Meal {
         return  this.day;
     }
 
-    public int getTime(){
+    public Meal.Time getTime(){
         return this.time;
     }
 
@@ -27,18 +30,18 @@ public class Meal {
         return this.recipe.getName();
     }
 
-    public void setDayTime(int day, int time){
+    public void setDayTime(int day, Meal.Time time){
         this.day = day;
         this.time = time;
     }
 
     public void setUnassinged(){
         this.day = 0;
-        this.time = 0;
+        this.time = Time.UNASSIGNED;
     }
     public boolean isUnAssinged(){
         boolean ret = true;
-        if(this.day != 0 & this.time != 0){
+        if(this.day != 0 & this.time != Time.UNASSIGNED){
             ret = false;
         }
         return ret;

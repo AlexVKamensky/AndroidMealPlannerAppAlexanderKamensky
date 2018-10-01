@@ -144,7 +144,7 @@ public class WhatsforDinnerModel {
         return ret;
     }
 
-    public void assignMeal(Meal meal, Integer day, Integer time){
+    public void assignMeal(Meal meal, Integer day, Meal.Time time){
         this.unAssignMeal(day, time);
         meal.setDayTime(day, time);
     }
@@ -160,7 +160,7 @@ public class WhatsforDinnerModel {
         return null;
     }
 
-    public Meal getAssingedMeal(Integer day, Integer time){
+    public Meal getAssingedMeal(Integer day, Meal.Time time){
         for(Meal meal: this.meals){
             if(meal.getDay() == day & meal.getTime() == time){
                 return meal;
@@ -169,7 +169,7 @@ public class WhatsforDinnerModel {
         return null;
     }
 
-    public void unAssignMeal(Integer day, Integer time){
+    public void unAssignMeal(Integer day, Meal.Time time){
         Meal meal = this.getAssingedMeal(day, time);
         if(meal != null) {
             meal.setUnassinged();
