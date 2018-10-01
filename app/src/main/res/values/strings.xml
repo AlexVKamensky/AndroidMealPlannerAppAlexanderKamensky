@@ -21,6 +21,16 @@
     <string name="mealsDinner">Dinner</string>
     <string name="mealsPrevious">Previous</string>
     <string name="mealsNext">Next</string>
+    <string name="ingredient1Hint">Ingredient1</string>
+    <string name="ingredient2Hint">Ingredient2</string>
+    <string name="ingredient3Hint">Ingredient3</string>
+    <string name="ingredient4Hint">Ingredient4</string>
+    <string name="ingredient5Hint">Ingredient5</string>
+    <string name="ingredient6Hint">Ingredient6</string>
+    <string name="ingredient7Hint">Ingredient7</string>
+    <string name="ingredient8Hint">Ingredient8</string>
+    <string name="ingredient9Hint">Ingredient9</string>
+    <string name="ingredient10Hint">Ingredient10</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

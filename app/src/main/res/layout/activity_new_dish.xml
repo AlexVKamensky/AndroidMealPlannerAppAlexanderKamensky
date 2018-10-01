@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient1"
+            android:hint="@string/ingredient1Hint"
             android:layout_below="@id/dishTextViewIngredients"
             />
         <AutoCompleteTextView
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient2"
+            android:hint="@string/ingredient2Hint"
             android:layout_below="@id/dishIngredient1"
             />
         <AutoCompleteTextView
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient3"
+            android:hint="@string/ingredient3Hint"
             android:layout_below="@id/dishIngredient2"
             />
 
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient4"
+            android:hint="@string/ingredient4Hint"
             android:layout_below="@id/dishIngredient3"
             />
         <AutoCompleteTextView
@@ -108,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient5"
+            android:hint="@string/ingredient5Hint"
             android:layout_below="@id/dishIngredient4"
             />
 
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient6"
+            android:hint="@string/ingredient6Hint"
             android:layout_below="@id/dishIngredient5"
             />
 
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient7"
+            android:hint="@string/ingredient7Hint"
             android:layout_below="@id/dishIngredient6"
             />
 
@@ -135,7 +135,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient8"
+            android:hint="@string/ingredient8Hint"
             android:layout_below="@id/dishIngredient7"
             />
 
@@ -144,7 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient9"
+            android:hint="@string/ingredient9Hint"
             android:layout_below="@id/dishIngredient8"
             />
 
@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:hint="Ingredient10"
+            android:hint="@string/ingredient10Hint"
             android:layout_below="@id/dishIngredient9"
             />
 
