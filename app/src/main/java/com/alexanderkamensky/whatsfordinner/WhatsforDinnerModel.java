@@ -209,15 +209,19 @@ public class WhatsforDinnerModel {
         ArrayList<String> ret = new ArrayList<String>();
         while (keys.hasMoreElements()) {
             String key = keys.nextElement();
-            Integer amount = groceries.get(key);
-            if(amount > 1) {
-                ret.add(key + " (" +amount + ")");
-            }
-            else {
-                ret.add(key);
-            }
+            ret.add(key);
         }
         Collections.sort(ret);
         return ret;
+    }
+
+    public String getGrocery(String name){
+        Integer amount = this.groceries.get(name);
+        if(amount > 1){
+            return name + " (" + amount +")";
+        }
+        else {
+            return name;
+        }
     }
 }

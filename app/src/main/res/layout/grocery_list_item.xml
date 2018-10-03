@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/groceryListTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:padding="10dp"/>
+
+    <ImageButton
+        android:id="@+id/groceryListAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_toLeftOf="@+id/groceryListRemoveButton"
+        android:src="@drawable/plussign"
+        android:visibility="invisible"
+        />
+
+    <ImageButton
+        android:id="@+id/groceryListRemoveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/minussign"
+        android:visibility="invisible"
+       />
+
+
+
+</RelativeLayout>
