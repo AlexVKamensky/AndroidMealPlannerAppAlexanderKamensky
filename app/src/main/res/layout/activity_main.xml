@@ -13,64 +13,64 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
         android:background="@null"
         android:onClick="inflatePopUp"
         android:src="@drawable/borscht" />
 
-    <TableLayout
+
+
+    <Button
+        android:id="@+id/button_meals"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_groceries"
+        android:layout_alignLeft="@id/button_groceries"
+        android:layout_alignRight="@id/button_groceries"
+        android:drawableTop="@drawable/ic_utensils"
+        android:onClick="launchMeals"
+        android:text="@string/buttonMealsText"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_recipies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_meals"
+        android:layout_alignTop="@+id/button_meals"
+        android:layout_toRightOf="@+id/button_meals"
+        android:layout_alignLeft="@id/button_newdish"
+        android:layout_alignRight="@+id/button_newdish"
+        android:drawableTop="@drawable/desciption"
+        android:onClick="launchRecipes"
+        android:text="@string/buttonRecipesText"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_groceries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:baselineAligned="false">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:drawableTop="@drawable/cart_dark"
+        android:onClick="launchGroceries"
+        android:text="@string/buttonGroceriesText"
+        android:textSize="30sp" />
 
-        <TableRow>
+    <Button
+        android:id="@+id/button_newdish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button_groceries"
+        android:layout_toEndOf="@+id/button_groceries"
+        android:layout_alignTop="@+id/button_groceries"
+        android:layout_alignBottom="@id/button_groceries"
+        android:drawableTop="@drawable/add_dark"
+        android:onClick="launchNewDish"
+        android:text="@string/buttonNewDishText"
+        android:textSize="30sp" />
 
-            <Button
-                android:id="@+id/button_meals"
-                android:layout_width="89dp"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_utensils"
-                android:onClick="launchMeals"
-                android:text="@string/buttonMealsText"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/button_recipies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/button_meals"
-                android:layout_alignTop="@+id/button_meals"
-                android:drawableTop="@drawable/desciption"
-                android:onClick="launchRecipes"
-                android:text="@string/buttonRecipesText"
-                android:textSize="30sp" />
-        </TableRow>
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/button_gorceries"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/cart_dark"
-                android:onClick="launchGroceries"
-                android:text="@string/buttonGroceriesText"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/button_newdish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/button_groceries"
-                android:layout_alignTop="@+id/button_groceries"
-                android:drawableTop="@drawable/add_dark"
-                android:onClick="launchNewDish"
-                android:text="@string/buttonNewDishText"
-                android:textSize="30sp" />/>
-        </TableRow>
-    </TableLayout>
 
 
 

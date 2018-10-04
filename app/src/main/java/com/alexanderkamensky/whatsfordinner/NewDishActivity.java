@@ -192,21 +192,24 @@ public class NewDishActivity extends AppCompatActivity {
     }
     private void recipeNameUpdate(String name){
         Log.d("Dish", "recipeNameUpdate name = " + name);
-        if(recipe == null & model.getRecipe(name) == null){
-            recipe = new Recipe(name);
-            model.addRecipe(recipe);
-        }else {
-            if(recipe == null){
-                recipe = model.getRecipe(name);
-            }
-            if (recipe.getName() != name) {
-                Recipe anotherRecipe = model.getRecipe(name);
-                if (anotherRecipe != null) {
-                    recipe = anotherRecipe;
+        if( ! name.equals("")) {
+            if (recipe == null & model.getRecipe(name) == null) {
+                Log.d("Dish", "recipeNameUpdate name setting the name = " + name);
+                recipe = new Recipe(name);
+                model.addRecipe(recipe);
+            } else {
+                if (recipe == null) {
+                    Log.d("Dish", "recipeNameUpdate name setting the name 2 = " + name);
+                    recipe = model.getRecipe(name);
                 }
-                else {
-                    recipe = new Recipe(name);
-                    model.addRecipe(recipe);
+                if (recipe.getName() != name) {
+                    Recipe anotherRecipe = model.getRecipe(name);
+                    if (anotherRecipe != null) {
+                        recipe = anotherRecipe;
+                    } else {
+                        recipe = new Recipe(name);
+                        model.addRecipe(recipe);
+                    }
                 }
             }
         }
