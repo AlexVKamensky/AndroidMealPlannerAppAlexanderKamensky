@@ -46,7 +46,7 @@ public class RecipeDetailFragment extends Fragment {
         TextView directionsView = (TextView) getView().findViewById(R.id.recipeDetailDirections);
 
         nameView.setText(recipeName);
-        imageView.setImageResource(recipe.getImage());
+        imageView.setImageDrawable(recipe.getImage());
         ingredientView.setText(recipe.getIngredientsString());
         directionsView.setText(recipe.getDirections());
     }

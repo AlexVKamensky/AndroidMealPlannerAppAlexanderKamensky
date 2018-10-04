@@ -1,16 +1,18 @@
 package com.alexanderkamensky.whatsfordinner;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 
+
 public class Recipe {
     final private static int debug = 4;
 
     String name;
     String directions;
-    Integer image;
+    Drawable image;
     Ingredient[] ingredients;
     Integer[] amount;
 
@@ -18,7 +20,6 @@ public class Recipe {
         this.name = name;
         this.ingredients = new Ingredient[10];
         this.amount = new Integer[10];
-        this.image = R.drawable.ic_lemon;
         if(debug > 0) {
             String mmsg = "Recipe " + this.name + " was created";
             Log.d("Modeltesting", mmsg);
@@ -41,8 +42,8 @@ public class Recipe {
         }
     }
 
-    public void setImage(Integer id){
-        this.image = id;
+    public void setImage(Drawable drawImage){
+        this.image = drawImage;
     }
 
     public String getIngredientsString(){
@@ -91,5 +92,8 @@ public class Recipe {
         return  this.directions;
     }
 
-    public Integer getImage() { return  this.image;}
+    public Drawable getImage() { return  this.image;}
+
+
+
 }

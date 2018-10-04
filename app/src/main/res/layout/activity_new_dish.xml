@@ -58,7 +58,8 @@
             android:layout_marginTop="-4dp"
             android:background="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/chooseimage" />
+            android:src="@drawable/chooseimage"
+            />
 
         <TextView
             android:id="@+id/dishTextViewIngredients"

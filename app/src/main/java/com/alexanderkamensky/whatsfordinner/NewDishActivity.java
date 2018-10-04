@@ -1,6 +1,11 @@
 package com.alexanderkamensky.whatsfordinner;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +15,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 
 public class NewDishActivity extends AppCompatActivity {
 
@@ -32,6 +42,7 @@ public class NewDishActivity extends AppCompatActivity {
     private WhatsforDinnerModel model;
 
     private ArrayAdapter<String> adapter;
+    private Drawable image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,7 @@ public class NewDishActivity extends AppCompatActivity {
 
         model = WhatsforDinnerModel.getModel();
         recipe = null;
+        image = getResources().getDrawable(R.drawable.ic_lemon);
 
         dishEditName = (EditText) findViewById(R.id.dishEditName);
         dishEditDirections = (EditText) findViewById(R.id.dishEditDirections);
@@ -110,6 +122,8 @@ public class NewDishActivity extends AppCompatActivity {
             }
         });
 
+        dishImageButton.setOnClickListener(imageListener);
+        image =  getResources().getDrawable(R.drawable.ic_lemon);
         Intent intent = getIntent();
         if(intent.getStringExtra("Name") != null){
             String name = intent.getStringExtra("Name");
@@ -140,12 +154,18 @@ public class NewDishActivity extends AppCompatActivity {
         if (recipe != null) {
             String name = recipe.getName();
             String directions = recipe.getDirections();
-
+            //recipe.setImage(image);
             Log.d("Dish", "Name = " + name + " directions = " + directions);
             dishEditName.setText(name);
             dishEditDirections.setText(directions);
 
-            dishImageView.setImageResource(recipe.getImage());
+            if(recipe.getImage() != null){
+                image = recipe.getImage();
+            }
+            else {
+                recipe.setImage(image);
+            }
+            dishImageView.setImageDrawable(image);
 
             dishIngredient1.setText(getRecipeIngredientName(0));
             dishIngredient2.setText(getRecipeIngredientName(1));
@@ -213,5 +233,62 @@ public class NewDishActivity extends AppCompatActivity {
             recipe.setDirections(directions);
         }
         fillGUI();
+    }
+
+    private View.OnClickListener imageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+        }
+    };
+
+    public void imageSelect(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    }
+
+    public static final int PICK_IMAGE = 1;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE) {
+            if(resultCode == RESULT_OK) {
+                Log.d("ImageSelect", "Found Image");
+                Log.d("ImageSelect", "No Crash");
+                try {
+                    final Uri imageUri = data.getData();
+                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    if(recipe != null) {
+                        Drawable drawImage = new BitmapDrawable(getResources(), selectedImage);
+                        image = resize(drawImage);
+                        recipe.setImage(image);
+                    }
+                } catch (FileNotFoundException e) {
+                }
+                Log.d("ImageSelect", "No Crash 2");
+            }
+        }
+        fillGUI();
+    }
+
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 100, 100, false);
+        return new BitmapDrawable(getResources(), bitmapResized);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+       // if(recipe != null | ){
+
+       // }
     }
 }

@@ -224,4 +224,8 @@ public class WhatsforDinnerModel {
             return name;
         }
     }
+
+    public String getGroceryName(String name){
+        return name;
+    }
 }

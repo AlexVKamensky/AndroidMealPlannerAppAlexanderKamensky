@@ -1,5 +1,8 @@
 package com.alexanderkamensky.whatsfordinner;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.ViewDebug;
 
@@ -9,10 +12,12 @@ import java.util.Hashtable;
 public class ModelTest {
 
     static private boolean initRun = false;
-    public static void testModel(){
+    public static void testModel(Context context){
         if(initRun){
             return;
         }
+        Drawable lemon = context.getResources().getDrawable(R.drawable.ic_lemon);
+        Drawable cake = context.getResources().getDrawable(R.drawable.cake);
         initRun = true;
         WhatsforDinnerModel model = WhatsforDinnerModel.getModel();
 
@@ -71,25 +76,30 @@ public class ModelTest {
         newrecpe1.setIngredient(newingr3, 2);
         newrecpe1.setIngredient(newingr4, 3);
         newrecpe1.setIngredient(newingr5, 4);
+        newrecpe1.setImage(lemon);
         model.addRecipe(newrecpe1);
 
         Recipe newrecpe2 = new Recipe("Faust Bread");
         newrecpe2.setIngredient(newingr3, 0);
         newrecpe2.setIngredient(newingr1, 1);
-        newrecpe1.setIngredient(newingr1, 1);
+        newrecpe2.setIngredient(newingr1, 1);
+        newrecpe2.setImage(lemon);
         model.addRecipe(newrecpe2);
 
         Recipe newrecpe3 = new Recipe("Cake");
         newrecpe3.setIngredient(newingr1, 1);
         newrecpe3.setDirections("Cook great Cake");
+        newrecpe3.setImage(cake);
         model.addRecipe(newrecpe3);
 
         Recipe newrecpe4 = new Recipe("Beef Chop");
         newrecpe4.setIngredient(newingr1, 1);
+        newrecpe4.setImage(lemon);
         model.addRecipe(newrecpe4);
 
         Recipe newrecpe5 = new Recipe("Chicken Salad");
         newrecpe5.setIngredient(newingr1, 1);
+        newrecpe5.setImage(lemon);
         model.addRecipe(newrecpe5);
 
         printRecipesAndIngredientNames(model);
@@ -119,8 +129,6 @@ public class ModelTest {
         model.assignMeal(meal2, 1, Meal.Time.LUNCH);
         unassinged = model.getUnassignedMeals();
 
-        newrecpe3.setImage(R.drawable.cake);
-        newrecpe1.setImage(R.drawable.cake);
     }
 
     public static void printArrayString(String prefix, ArrayList<String> list){

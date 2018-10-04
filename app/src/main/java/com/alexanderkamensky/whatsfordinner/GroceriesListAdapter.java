@@ -30,11 +30,17 @@ public class GroceriesListAdapter extends RecyclerView.Adapter<GroceryListItemHo
     @Override
     public void onBindViewHolder(GroceryListItemHolder holder, int position){
         holder.nameText.setText(model.getGrocery(groceryList.get(position)));
+        holder.GroceryName = model.getGroceryName(groceryList.get(position));
+        holder.addButton.setOnClickListener(holder.addListner);
+        holder.removeButton.setOnClickListener(holder.removeListner);
     }
 
     @Override
     public int getItemCount(){
         return this.groceryList.size();
     }
+
+
+
 
 }
