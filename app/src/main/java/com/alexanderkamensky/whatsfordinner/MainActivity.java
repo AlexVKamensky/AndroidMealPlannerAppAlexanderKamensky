@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ModelTest.testModel(this);
+        //ModelTest.testModel(this);
+        ModelTest.demoSetup(this);
     }
 
     public void launchMeals(View view){

@@ -131,6 +131,77 @@ public class ModelTest {
 
     }
 
+    public static void demoSetup(Context context){
+        if(initRun){
+            return;
+        }
+        initRun = true;
+        Drawable lemon = context.getResources().getDrawable(R.drawable.ic_lemon);
+        Drawable cake = context.getResources().getDrawable(R.drawable.cake);
+        WhatsforDinnerModel model = WhatsforDinnerModel.getModel();
+
+        Ingredient newingr1 = new Ingredient("Salt");
+        model.addIngredient(newingr1);
+
+        Ingredient newingr2 = new Ingredient("Flour");
+        model.addIngredient(newingr2);
+
+        Ingredient newingr3 = new Ingredient("Sugar");
+        model.addIngredient(newingr3);
+
+        Ingredient newingr4 = new Ingredient("Eggs");
+        model.addIngredient(newingr4);
+
+        Ingredient newingr5 = new Ingredient("Buttermilk");
+        model.addIngredient(newingr5);
+
+        Ingredient newingr6 = new Ingredient("Baking powder");
+        model.addIngredient(newingr6);
+
+        Ingredient newingr7 = new Ingredient("Baking Soda");
+        model.addIngredient(newingr7);
+
+        Recipe newrecpe1 = new Recipe("Cake");
+        newrecpe1.setIngredient(newingr1, 0);
+        newrecpe1.setIngredient(newingr2, 1);
+        newrecpe1.setIngredient(newingr3, 2);
+        newrecpe1.setIngredient(newingr4, 3);
+        newrecpe1.setIngredient(newingr5, 4);
+        newrecpe1.setIngredient(newingr6, 5);
+        newrecpe1.setIngredient(newingr7, 6);
+        newrecpe1.setIngredient(newingr2, 7);
+        newrecpe1.setIngredient(newingr3, 8);
+        newrecpe1.setDirections("Preheat oven to 350º F. Combine flour, baking powder, baking soda, and salt in a large bowl. Whisk through to combine. Set aside. Cream butter until fluffy and then add sugar. Cream together for about 8 more minutes. Add eggs, one at a time, and mix just until combined. Bake for 25-30 minutes");
+        newrecpe1.setImage(cake);
+        model.addRecipe(newrecpe1);
+
+        Ingredient newingr8 = new Ingredient("Lettuce");
+        model.addIngredient(newingr8);
+
+        Ingredient newingr9 = new Ingredient("Garlic");
+        model.addIngredient(newingr9);
+
+        Ingredient newingr10 = new Ingredient("Mayonnaise");
+        model.addIngredient(newingr10);
+
+        Ingredient newingr11 = new Ingredient("Croutons");
+        model.addIngredient(newingr11);
+
+        Recipe newrecpe2 = new Recipe("Caesar Salad");
+        newrecpe2.setIngredient(newingr1, 0);
+        newrecpe2.setIngredient(newingr8, 1);
+        newrecpe2.setIngredient(newingr9, 2);
+        newrecpe2.setIngredient(newingr10, 3);
+        newrecpe2.setIngredient(newingr11, 4);
+        newrecpe2.setIngredient(newingr1, 5);
+        newrecpe2.setIngredient(newingr8, 6);
+        newrecpe2.setIngredient(newingr8, 7);
+        newrecpe2.setDirections("Mix everything well, then add Mayonnaise.");
+        newrecpe2.setImage(lemon);
+        model.addRecipe(newrecpe2);
+
+    }
+
     public static void printArrayString(String prefix, ArrayList<String> list){
 
         for(String name : list){
