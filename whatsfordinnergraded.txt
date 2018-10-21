@@ -1,0 +1,74 @@
+# Self-Assessment for "What's for Dinner"
+
+Note: Append this self-assessment markdown file to the **readme.md** file on your team's GitHub Classroom repository.
+
+## Team Information
+
+(1) Provide the link to the repository on GitHub Classroom:
+[ URL ]
+
+(2) Provide the team information as well as each person's roles and responsibilities:
+
+| Name | SJSU ID | Roles & Responsibilities |
+|------|------------|--------------------------|
+| [Name] | [ID] | [Description - see examples in the rows below] |
+| Peter Smith | 123456 | ingridient menu class |
+| John Doe | 234567 | UI design + shopping class |
+| Mary Smiley | 432432 | Documentation + unit tests + recipe menu class |
+
+## Rubrics
+
+(1) Provide the link for YouTube Demo clip (the clip setting must be public, not listed): 
+[ URL ]
+
+(2) Provide self-assessed scores and demo clip timeline in the following table:
+
+
+Please Just follow this vidoe:https://youtu.be/wEprffLwadA
+|Screen | Requirement | Full Scores | Self-Assessed Scores | Demo clip timeline |
+|--|---|---|---|---|
+|The Main Screen | Images for banner and 4 menu items | 5 | [ 5 ] | [ URL ] |
+|The Main Screen | Handling of mouse clicks | 2 | [ 2 ] | [ URL ] |
+|The Main Screen | Pop-up Window w/ app info | 3 | [ 3 ] | [ URL ] |
+| The New Dish Screen | Recipe's Name | 1 | [ 1 ] | [ URL ] |
+| The New Dish Screen | Prompt | 1 | [ 1 ] | [ URL ] |
+| The New Dish Screen | Check for existing recipe | 1 | [ 1 ] | [ URL ] |
+| The New Dish Screen | Add image button (local or link) | 1 | [ 1 ] | [ URL ] |
+| The New Dish Screen | Default image | 1 | [ 1 ] | [ URL ] |
+| The New Dish Screen | Pull-down Menu | 3 | [ 3 ] | [ URL ] |
+| The New Dish Screen | Check for 250 characters limit | 1 | [ 1 ] | [ URL ] |
+| The Recipes Screen | Support fragments | 2 | [ 2 ] | [ URL ] |
+| The Recipes Screen | Portrait screen w/ summary | 1 | [ 1 ] | [ URL ] |
+| The Recipes Screen | Item selection | 2 | [ 2 ] | [ URL ] |
+| The Recipes Screen | Landscape screen | 2 | [ 2 ] | [ URL ] |
+| The Recipes Screen | Long press of the recipe item | 3 | [ 3 ] | [ URL ] |
+| The Groceries Screen | List of all ingredients | 1 | [ 1 ] | [ URL ] |
+| The Groceries Screen | Counter for each item | 2 | [ 2 ] | [ URL ] |
+| The Groceries Screen | Units for the item | 2 | [ 0 ] | [ URL ] |
+| The Groceries Screen | Gesture and counter control  | 2 | [ 2 ] | [ URL ] |
+| The Groceries Screen | Crossing-out for zero count | 1 | [ 1 ] | [ URL ] |
+| The Groceries Screen | Swipe to the right | 1 | [ 1 ] | [ URL ] |
+| The Groceries Screen | Vertical Scrollbar | 1 | [ 1 ] | [ URL ] |
+| The Meals Screen | Selection of meals | 4 | [ 4 ] | [ URL ] |
+| The Meals Screen | Support of three meals / day | 2 | [ 2 ] | [ URL ] |
+| The Meals Screen | Eating out option | 2 | [ 2 ] | [ URL ] |
+| The Meals Screen | Update of meals assigned | 2 | [ 2 ] | [ URL ] |
+
+Note: Put down 50% partial credit for each feature that has been implemented but not fully functional.  To get 50% partial credit, insert the link to the file that implements this feature intead of adding the demo clip timeline in the last column in the above table.
+
+|Screen | Requirement | Full Scores | Self-Assessed Scores | Demo clip timeline |
+|--|---|---|---|---|
+| The Nutrition Manager | Nutrition value for each recipe | 1 | [ # ] | [ URL ] |
+| The Nutrition Manager | Tracking of nutrition consumption | 3 | [ # ] | [ URL ] |
+| The Nutrition Manager | Setting up goals | 3 | [ # ] | [ URL ] |
+| The Nutrition Manager | Goal indicator | 2 | [ # ] | [ URL ] |
+| The Nutrition Manager | Nutrition information | 1 | [ # ] | [ URL ] |
+
+Note for the extra credit: No partial credit is granted to non-functional features.  All features for extra-credits must be shown in the demo clip.
+
+(3) Provide the total assess points for this programming assignment:
+
+We certify that we have achieved [ # ] points out of 50 points in our assignment.
+
+We certify that we have achieved [ # ] points out of 10 points in extra credits.
+
